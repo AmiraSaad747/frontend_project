@@ -1,0 +1,275 @@
+
+<form
+  [formGroup]="productForm"
+  (ngSubmit)="onSubmit()"
+>
+
+  <!-- ========================= -->
+  <!-- PRODUCT NAME -->
+  <!-- ========================= -->
+
+  <label>
+    Product Name
+  </label>
+
+  <input
+    type="text"
+    formControlName="name"
+    placeholder="Enter product name"
+  />
+
+
+  <!-- ========================= -->
+  <!-- DESCRIPTION -->
+  <!-- ========================= -->
+
+  <label>
+    Description
+  </label>
+
+  <textarea
+    formControlName="description"
+    placeholder="Enter product description"
+  ></textarea>
+
+
+  <!-- ========================= -->
+  <!-- PRICE -->
+  <!-- ========================= -->
+
+  <label>
+    Price
+  </label>
+
+  <input
+    type="number"
+    formControlName="price"
+    placeholder="Enter price"
+  />
+
+
+  <!-- ========================= -->
+  <!-- CATEGORY -->
+  <!-- ========================= -->
+
+  <label>
+    Category
+  </label>
+
+  <select
+    formControlName="category"
+  >
+
+    <option value="">
+      Select category
+    </option>
+
+    <option value="dresses">
+      Dresses
+    </option>
+
+    <option value="shirts">
+      Shirts
+    </option>
+
+    <option value="pants">
+      Pants
+    </option>
+
+    <option value="shoes">
+      Shoes
+    </option>
+
+    <option value="accessories">
+      Accessories
+    </option>
+
+  </select>
+
+
+ 
+<!-- ========================= -->
+<!-- SIZE -->
+<!-- ========================= -->
+
+<label>
+  Size
+</label>
+
+<select
+  formControlName="size"
+>
+
+  <option value="">
+    Select size
+  </option>
+
+
+  <!-- CLOTHES -->
+
+  @if (
+    productForm.controls.category.value === 'dresses' ||
+    productForm.controls.category.value === 'shirts'
+  ) {
+
+    <option value="XS">XS</option>
+
+    <option value="S">S</option>
+
+    <option value="M">M</option>
+
+    <option value="L">L</option>
+
+    <option value="XL">XL</option>
+
+    <option value="XXL">XXL</option>
+
+  }
+
+
+  <!-- PANTS -->
+
+  @if (
+    productForm.controls.category.value === 'pants'
+  ) {
+
+    <option value="28">28</option>
+
+    <option value="30">30</option>
+
+    <option value="32">32</option>
+
+    <option value="34">34</option>
+
+    <option value="36">36</option>
+
+    <option value="38">38</option>
+
+    <option value="40">40</option>
+
+  }
+
+
+  <!-- SHOES -->
+
+  @if (
+    productForm.controls.category.value === 'shoes'
+  ) {
+
+    <option value="36">36</option>
+
+    <option value="37">37</option>
+
+    <option value="38">38</option>
+
+    <option value="39">39</option>
+
+    <option value="40">40</option>
+
+    <option value="41">41</option>
+
+    <option value="42">42</option>
+
+    <option value="43">43</option>
+
+    <option value="44">44</option>
+
+    <option value="45">45</option>
+
+  }
+
+
+  <!-- ACCESSORIES -->
+
+  @if (
+    productForm.controls.category.value === 'accessories'
+  ) {
+
+    <option value="Free Size">
+      Free Size
+    </option>
+
+  }
+
+</select>
+
+
+  <!-- ========================= -->
+  <!-- STOCK -->
+  <!-- ========================= -->
+
+  <label>
+    Stock
+  </label>
+
+  <input
+    type="number"
+    formControlName="stock"
+    placeholder="Enter stock"
+  />
+
+
+  <!-- ========================= -->
+  <!-- IMAGE -->
+  <!-- ========================= -->
+
+  <label>
+    Product Image
+  </label>
+
+  <input
+    type="file"
+    accept="image/*"
+    (change)="onImageSelected($event)"
+  />
+
+
+  <!-- ========================= -->
+  <!-- SUBMIT -->
+  <!-- ========================= -->
+
+  <button
+    type="submit"
+    [disabled]="productForm.invalid || loading"
+  >
+
+    @if (loading) {
+
+      Adding...
+
+    } @else {
+
+      Add Product
+
+    }
+
+  </button>
+
+
+  <!-- ========================= -->
+  <!-- SUCCESS -->
+  <!-- ========================= -->
+
+  @if (successMessage) {
+
+    <p class="success">
+      {{ successMessage }}
+    </p>
+
+  }
+
+
+  <!-- ========================= -->
+  <!-- ERROR -->
+  <!-- ========================= -->
+
+  @if (errorMessage) {
+
+    <p class="error">
+      {{ errorMessage }}
+    </p>
+
+  }
+
+</form>
+

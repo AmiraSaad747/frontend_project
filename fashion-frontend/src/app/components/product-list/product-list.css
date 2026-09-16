@@ -1,0 +1,187 @@
+.products-section {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 80px 30px;
+
+}
+
+
+.section-header {
+
+  text-align: center;
+
+  margin-bottom: 45px;
+
+}
+
+
+.section-header span {
+
+  color: #a8b88a;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+}
+
+
+.section-header h2 {
+
+  margin: 8px 0;
+
+  color: #30332c;
+
+  font-size: 34px;
+
+}
+
+
+.section-header p {
+
+  margin: 0;
+
+  color: #888;
+
+  font-size: 14px;
+
+}
+
+
+/* GRID */
+
+.products-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 25px;
+
+}
+
+
+/* LOADING */
+
+.loading {
+
+  min-height: 250px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #888;
+
+}
+
+
+/* ERROR */
+
+.error {
+
+  padding: 40px;
+
+  text-align: center;
+
+  border-radius: 15px;
+
+  background: #fafafa;
+
+}
+
+
+.error p {
+
+  color: #b45d5d;
+
+}
+
+
+.error button {
+
+  padding: 10px 20px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: #a8b88a;
+
+  color: white;
+
+  cursor: pointer;
+
+}
+
+
+/* EMPTY */
+
+.empty {
+
+  padding: 70px 20px;
+
+  text-align: center;
+
+  background: #f7f8f4;
+
+  border-radius: 20px;
+
+}
+
+
+.empty h3 {
+
+  color: #444;
+
+}
+
+
+.empty p {
+
+  color: #888;
+
+}
+
+
+@media (max-width: 1000px) {
+
+  .products-grid {
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .products-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .products-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}

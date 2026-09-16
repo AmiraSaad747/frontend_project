@@ -1,0 +1,312 @@
+<div class="signup-container">
+
+  <h1>
+    Create Account
+  </h1>
+
+  <p>
+    Join ModaGo today
+  </p>
+
+
+  <!-- ERROR -->
+
+  @if (errorMessage) {
+
+    <div class="error">
+      {{ errorMessage }}
+    </div>
+
+  }
+
+
+  <!-- SUCCESS -->
+
+  @if (successMessage) {
+
+    <div class="success">
+      {{ successMessage }}
+    </div>
+
+  }
+
+
+  <!-- CHOOSE ROLE -->
+
+  @if (!selectedRole) {
+
+    <div class="role-section">
+
+      <h3>
+        Create account as
+      </h3>
+
+
+      <div class="role-buttons">
+
+        <button
+          type="button"
+          class="role-card"
+          (click)="selectRole('customer')"
+        >
+
+          <span class="role-icon">
+            👤
+          </span>
+
+          <span class="role-title">
+            Customer
+          </span>
+
+          <span class="role-description">
+            Name, email and phone
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="role-card"
+          (click)="selectRole('admin')"
+        >
+
+          <span class="role-icon">
+            👑
+          </span>
+
+          <span class="role-title">
+            Admin
+          </span>
+
+          <span class="role-description">
+            Name, email and password
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- FORM -->
+
+  @if (selectedRole) {
+
+    <div class="selected-role">
+
+      <span>
+
+        @if (selectedRole === 'admin') {
+
+          👑 Admin
+
+        } @else {
+
+          👤 Customer
+
+        }
+
+      </span>
+
+
+      <button
+        type="button"
+        (click)="changeRole()"
+      >
+        Change
+      </button>
+
+    </div>
+
+
+    <form
+      [formGroup]="signupForm"
+      (ngSubmit)="onSubmit()"
+    >
+
+      <!-- NAME -->
+
+      <label>
+        Name
+      </label>
+
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter your name"
+      >
+
+
+      @if (
+        signupForm.controls.name.touched &&
+        signupForm.controls.name.invalid
+      ) {
+
+        <small>
+
+          @if (
+            signupForm.controls.name.errors?.['required']
+          ) {
+            Name is required
+          }
+
+          @if (
+            signupForm.controls.name.errors?.['minlength']
+          ) {
+            Name must be at least 3 characters
+          }
+
+        </small>
+
+      }
+
+
+      <!-- EMAIL -->
+
+      <label>
+        Email
+      </label>
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      >
+
+
+      @if (
+        signupForm.controls.email.touched &&
+        signupForm.controls.email.invalid
+      ) {
+
+        <small>
+
+          @if (
+            signupForm.controls.email.errors?.['required']
+          ) {
+            Email is required
+          }
+
+          @if (
+            signupForm.controls.email.errors?.['email']
+          ) {
+            Enter a valid email
+          }
+
+        </small>
+
+      }
+
+
+      <!-- PHONE -->
+
+      @if (selectedRole === 'customer') {
+
+        <label>
+          Phone
+        </label>
+
+        <input
+          type="text"
+          formControlName="phone"
+          placeholder="Enter your phone"
+        >
+
+
+        @if (
+          signupForm.controls.phone.touched &&
+          signupForm.controls.phone.invalid
+        ) {
+
+          <small>
+            Phone is required
+          </small>
+
+        }
+
+      }
+
+
+      <!-- PASSWORD -->
+
+      @if (selectedRole === 'admin') {
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        >
+
+
+        @if (
+          signupForm.controls.password.touched &&
+          signupForm.controls.password.invalid
+        ) {
+
+          <small>
+
+            @if (
+              signupForm.controls.password.errors?.['required']
+            ) {
+              Password is required
+            }
+
+            @if (
+              signupForm.controls.password.errors?.['minlength']
+            ) {
+              Password must be at least 6 characters
+            }
+
+          </small>
+
+        }
+
+      }
+
+
+      <!-- SUBMIT -->
+
+      <button
+        type="submit"
+        class="submit-button"
+        [disabled]="loading"
+      >
+
+        @if (loading) {
+
+          Creating Account...
+
+        } @else {
+
+          Sign Up
+
+        }
+
+      </button>
+
+    </form>
+
+  }
+
+
+  <!-- SIGN IN -->
+
+  <p class="bottom-link">
+
+    Already have an account?
+
+    <a routerLink="/signin">
+      Sign In
+    </a>
+
+  </p>
+
+</div>

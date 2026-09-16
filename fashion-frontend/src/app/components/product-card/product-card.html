@@ -1,0 +1,125 @@
+<article
+  class="product-card"
+  (click)="openDetails()"
+>
+
+  <!-- IMAGE -->
+
+  <div class="product-image-container">
+
+    @if (product().imageUrl) {
+
+      <img
+        [src]="getImageUrl(product().imageUrl)"
+        [alt]="product().name"
+        class="product-image"
+      />
+
+    }
+
+    @else {
+
+      <div class="no-image">
+        No Image
+      </div>
+
+    }
+
+
+    <!-- CATEGORY -->
+
+    <span class="category-badge">
+      {{ product().category }}
+    </span>
+
+
+    <!-- STOCK -->
+
+    @if (product().stock === 0) {
+
+      <span class="out-stock">
+        Out of Stock
+      </span>
+
+    }
+
+  </div>
+
+
+  <!-- CONTENT -->
+
+  <div class="product-content">
+
+    <p class="product-category">
+      {{ product().category }}
+    </p>
+
+    <h3>
+      {{ product().name }}
+    </h3>
+
+    <p class="description">
+      {{ product().description }}
+    </p>
+
+
+    <!-- SIZE -->
+
+    <div class="product-info">
+
+      <span>
+        Size:
+        <strong>
+          {{ "optional"}}
+        </strong>
+      </span>
+
+      <span>
+        Stock:
+        <strong>
+          {{ product().stock }}
+        </strong>
+      </span>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+
+    <div class="product-bottom">
+
+      <span class="price">
+        {{ product().price }} EGP
+      </span>
+
+
+      @if (product().stock > 0) {
+
+        <button
+          type="button"
+          class="cart-button"
+          (click)="addToCart($event)"
+        >
+          Add to Cart
+        </button>
+
+      }
+
+      @else {
+
+        <button
+          type="button"
+          class="cart-button disabled"
+          disabled
+          (click)="$event.stopPropagation()"
+        >
+          Out of Stock
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+</article>

@@ -1,0 +1,276 @@
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <span class="hero-small-title">
+      MODAGO
+    </span>
+
+    <h1>
+      Discover Your
+      <span>Unique Style</span>
+    </h1>
+
+    <p>
+      Discover local fashion brands, find your favorite styles,
+      and enjoy an easy and unique shopping experience.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        routerLink="/products"
+        class="primary-btn"
+      >
+        Shop Now
+        <span>→</span>
+      </a>
+
+      <a
+        routerLink="/products"
+        class="secondary-btn"
+      >
+        Explore Collection
+      </a>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="stat">
+        <strong>100+</strong>
+        <span>Products</span>
+      </div>
+
+      <div class="stat">
+        <strong>20+</strong>
+        <span>Local Brands</span>
+      </div>
+
+      <div class="stat">
+        <strong>4.8</strong>
+        <span>Customer Rating</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-image">
+
+    <img
+      src="https://images.unsplash.com/photo-1657815929003-b97cc426cb3d?q=80&w=708&auto=format&fit=crop"
+      alt="Fashion Collection"
+    >
+
+    <div class="hero-image-card">
+
+      <span>✦</span>
+
+      <div>
+        <strong>Unique Style</strong>
+        <small>Made for you</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories-section">
+
+  <div class="section-header">
+
+    <div>
+      <span class="section-label">
+        EXPLORE
+      </span>
+
+      <h2>
+        Shop by Category
+      </h2>
+
+      <p>
+        Find exactly what you're looking for.
+      </p>
+    </div>
+
+    <a
+      routerLink="/products"
+      class="view-all"
+    >
+      View All
+      <span>→</span>
+    </a>
+
+  </div>
+
+
+  <div class="categories-grid">
+
+    @for (category of categories; track category.name) {
+
+      <a
+        class="category-card"
+        [routerLink]="['/products']"
+        [queryParams]="category.category
+          ? { category: category.category }
+          : {}"
+      >
+
+        <img
+          [src]="category.image"
+          [alt]="category.name"
+        >
+
+        <div class="category-overlay">
+
+          <h3>
+            {{ category.name }}
+          </h3>
+
+          <span>
+            Shop Now →
+          </span>
+
+        </div>
+
+      </a>
+
+    }
+
+  </div>
+
+</section>
+
+
+<!-- ================= OFFER ================= -->
+
+<section class="offer-section">
+
+  <div class="offer-content">
+
+    <span class="offer-label">
+      SPECIAL OFFER
+    </span>
+
+    <h2>
+      Find Your Style.
+      <br>
+      Love Your Look.
+    </h2>
+
+    <p>
+      Explore amazing pieces from local brands
+      and discover something made just for you.
+    </p>
+
+    <a
+      routerLink="/products"
+      class="primary-btn"
+    >
+      Shop Collection
+      <span>→</span>
+    </a>
+
+  </div>
+
+
+  <div class="offer-image">
+
+    <img
+      src="https://images.unsplash.com/photo-1619384259054-ee3ce9d1798c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzAwfHxmYXNoaW9ufGVufDB8fDB8fHww >?w=900&auto=format&fit=crop&q=80"
+      alt="Fashion offer"
+>
+  </div>
+
+</section>
+
+
+<!-- ================= WHY MODAGO ================= -->
+
+<section class="why-section">
+
+  <div class="section-header centered">
+
+    <span class="section-label">
+      WHY MODAGO
+    </span>
+
+    <h2>
+      Shopping Made Different
+    </h2>
+
+    <p>
+      Everything you need for a simple and enjoyable
+      fashion experience.
+    </p>
+
+  </div>
+
+
+  <div class="benefits-grid">
+
+    @for (benefit of benefits; track benefit.title) {
+
+      <div class="benefit-card">
+
+        <div class="benefit-icon">
+          {{ benefit.icon }}
+        </div>
+
+        <h3>
+          {{ benefit.title }}
+        </h3>
+
+        <p>
+          {{ benefit.text }}
+        </p>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>
+
+
+<!-- ================= FINAL CTA ================= -->
+
+<section class="final-cta">
+
+  <div class="final-cta-content">
+
+    <span>
+      YOUR STYLE, YOUR WAY
+    </span>
+
+    <h2>
+      Ready to Find
+      Your Next Favorite Piece?
+    </h2>
+
+    <p>
+      Explore our collection and discover
+      styles that match your personality.
+    </p>
+
+    <a
+      routerLink="/products"
+      class="primary-btn"
+    >
+      Start Shopping
+      <span>→</span>
+    </a>
+
+  </div>
+
+</section>

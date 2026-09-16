@@ -1,0 +1,258 @@
+@if (loading()) {
+
+  <div class="loading">
+
+    <p>
+      Loading...
+    </p>
+
+  </div>
+
+}
+
+
+@if (errorMessage()) {
+
+  <div class="error">
+
+    <p>
+      {{ errorMessage() }}
+    </p>
+
+  </div>
+
+}
+
+
+@if (product(); as p) {
+
+  <section class="product-details">
+
+
+    <!-- ========================= -->
+    <!-- PRODUCT IMAGE -->
+    <!-- ========================= -->
+
+    <div class="product-image-container">
+
+      <img
+        [src]="getImageUrl()"
+        [alt]="p.name"
+        class="product-image"
+      >
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- PRODUCT INFORMATION -->
+    <!-- ========================= -->
+
+    <div class="product-info">
+
+
+      <!-- CATEGORY -->
+
+      <p class="product-category">
+
+        {{ p.category }}
+
+      </p>
+
+
+      <!-- PRODUCT NAME -->
+
+      <h1>
+
+        {{ p.name }}
+
+      </h1>
+
+
+      <!-- DESCRIPTION -->
+
+      <p class="description">
+
+        {{ p.description }}
+
+      </p>
+
+
+      <!-- PRICE -->
+
+      <h2 class="price">
+
+        {{ p.price }} EGP
+
+      </h2>
+
+
+      <!-- ========================= -->
+      <!-- SIZE SECTION -->
+      <!-- ========================= -->
+
+      <div class="size-section">
+
+
+        <!-- SIZE HEADER -->
+
+        <div class="size-header">
+
+          <label>
+
+            Select Size
+
+          </label>
+
+
+          @if (selectedSize()) {
+
+            <span>
+
+              Selected:
+
+              <strong>
+
+                {{ selectedSize() }}
+
+              </strong>
+
+            </span>
+
+          }
+
+        </div>
+
+
+        <!-- SIZE BUTTONS -->
+
+        <div class="size-options">
+
+          @for (
+            size of getSizes();
+            track size
+          ) {
+
+            <button
+              type="button"
+              class="size-button"
+
+              [class.selected]="
+                selectedSize() === size
+              "
+
+              (click)="selectSize(size)"
+            >
+
+              {{ size }}
+
+            </button>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- PRODUCT INFORMATION -->
+      <!-- ========================= -->
+
+      <div class="product-meta">
+
+
+        <p>
+
+          Category:
+
+          <strong>
+
+            {{ p.category }}
+
+          </strong>
+
+        </p>
+
+
+        <p>
+
+          Available:
+
+          <strong>
+
+            {{ p.stock }}
+
+          </strong>
+
+        </p>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- ADD TO CART -->
+      <!-- ========================= -->
+
+      @if (p.stock > 0) {
+
+        <button
+          type="button"
+          class="add-to-cart"
+
+          (click)="addToCart()"
+        >
+
+          Add To Cart
+
+        </button>
+
+      }
+
+      @else {
+
+        <button
+          type="button"
+          class="add-to-cart disabled"
+          disabled
+        >
+
+          Out of Stock
+
+        </button>
+
+      }
+
+
+      <!-- ========================= -->
+      <!-- CART FEEDBACK -->
+      <!-- ========================= -->
+
+      @if (cartMessage()) {
+
+        <div
+          class="cart-feedback"
+
+          [class.error-feedback]="
+            !selectedSize()
+          "
+        >
+
+          <span>
+
+            {{ selectedSize() ? '✓' : '!' }}
+
+          </span>
+
+
+          {{ cartMessage() }}
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+}

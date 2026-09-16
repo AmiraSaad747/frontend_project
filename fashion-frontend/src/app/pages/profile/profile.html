@@ -1,0 +1,33 @@
+<div class="profile-container">
+
+  <h1>My Profile</h1>
+
+  @if (user) {
+
+    <div class="profile-card">
+
+      <p>
+        <strong>Name:</strong>
+        {{ user.name }}
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        {{ user.email }}
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        {{ user.phone }}
+      </p>
+
+      <p>
+        <strong>Role:</strong>
+        {{ user.role }}
+      </p>
+
+    </div>
+
+  }
+
+</div>

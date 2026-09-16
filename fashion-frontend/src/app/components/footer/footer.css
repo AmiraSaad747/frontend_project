@@ -1,0 +1,185 @@
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+
+  margin-top: 80px;
+
+  background-color: #30352b;
+
+  color: white;
+
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.footer-content {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 60px 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    2fr 1fr 1fr 1.5fr;
+
+  gap: 50px;
+
+}
+
+
+/* ========================================
+   BRAND
+======================================== */
+
+.footer-logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 23px;
+
+  font-weight: 700;
+
+}
+
+
+.footer-logo span {
+
+  width: 38px;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: #a8b88a;
+
+}
+
+
+.footer-brand p {
+
+  max-width: 300px;
+
+  margin-top: 18px;
+
+  color: #c4c8be;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+}
+
+
+/* ========================================
+   COLUMNS
+======================================== */
+
+.footer-column {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+}
+
+
+.footer-column h3 {
+
+  margin-bottom: 10px;
+
+  font-size: 16px;
+
+}
+
+
+.footer-column a,
+.footer-column p {
+
+  color: #c4c8be;
+
+  font-size: 13px;
+
+}
+
+
+.footer-column a:hover {
+
+  color: #a8b88a;
+
+}
+
+
+/* ========================================
+   BOTTOM
+======================================== */
+
+.footer-bottom {
+
+  padding: 20px;
+
+  text-align: center;
+
+  border-top:
+    1px solid #4a5043;
+
+}
+
+
+.footer-bottom p {
+
+  color: #aeb3a6;
+
+  font-size: 12px;
+
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+  .footer-content {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 35px;
+
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .footer-content {
+
+    grid-template-columns: 1fr;
+
+    padding: 45px 25px;
+
+  }
+
+}

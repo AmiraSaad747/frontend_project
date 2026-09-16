@@ -1,0 +1,158 @@
+
+<nav class="navbar">
+
+  <!-- ================================================= -->
+  <!-- LOGO -->
+  <!-- ================================================= -->
+
+  <a
+    routerLink="/"
+    class="logo"
+  >
+
+    <span class="logo-circle">
+      M
+    </span>
+
+    <span class="logo-text">
+      ModaGo
+    </span>
+
+  </a>
+
+
+  <!-- ================================================= -->
+  <!-- LINKS -->
+  <!-- ================================================= -->
+
+  <div class="links">
+
+    <!-- HOME -->
+    <a routerLink="/">
+      Home
+    </a>
+
+
+    <!-- SHOP -->
+    <a routerLink="/products">
+      Shop
+    </a>
+
+
+    <!-- CATEGORIES -->
+
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'dresses' }"
+    >
+      Dresses
+    </a>
+
+
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'shirts' }"
+    >
+      Shirts
+    </a>
+
+
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'pants' }"
+    >
+      Pants
+    </a>
+
+
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'shoes' }"
+    >
+      Shoes
+    </a>
+
+
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'accessories' }"
+    >
+      Accessories
+    </a>
+
+
+    <!-- ================================================= -->
+    <!-- CART -->
+    <!-- ================================================= -->
+
+    @if (isLoggedIn) {
+
+      <a routerLink="/cart">
+        Cart
+      </a>
+
+    }
+
+
+    <!-- ================================================= -->
+    <!-- LOGGED IN -->
+    <!-- ================================================= -->
+
+    @if (isLoggedIn) {
+
+
+      <!-- PROFILE -->
+
+      <a routerLink="/profile">
+        Profile
+      </a>
+
+
+      <!-- ADMIN ONLY -->
+
+      @if (isAdmin) {
+
+        <a routerLink="/add-product">
+          Add Product
+        </a>
+
+      }
+
+
+      <!-- LOGOUT -->
+
+      <button
+        type="button"
+        (click)="logout()"
+        class="logout-button"
+      >
+        Logout
+      </button>
+
+    }
+
+
+    <!-- ================================================= -->
+    <!-- NOT LOGGED IN -->
+    <!-- ================================================= -->
+
+    @else {
+
+      <a routerLink="/signin">
+        Sign In
+      </a>
+
+
+      <a
+        routerLink="/signup"
+        class="signup-button"
+      >
+        Sign Up
+      </a>
+
+    }
+
+  </div>
+
+</nav>
+

@@ -1,0 +1,277 @@
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+
+  height: 78px;
+
+  padding: 0 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background-color: white;
+
+  border-bottom:
+    1px solid #eeeeee;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+
+.logo-circle {
+
+  width: 38px;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: #a8b88a;
+
+  color: white;
+
+  font-weight: 700;
+
+  font-size: 18px;
+
+}
+
+
+.logo-text {
+
+  color: #34372f;
+
+  font-size: 23px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+}
+
+
+/* ========================================
+   LINKS
+======================================== */
+
+.links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+}
+
+
+.links a {
+
+  position: relative;
+
+  color: #555;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  transition: 0.3s;
+
+}
+
+
+.links a:hover {
+
+  color: #8a9c6c;
+
+}
+
+
+/* Underline */
+
+.links a:not(.signup-button)::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -7px;
+
+  width: 0;
+
+  height: 2px;
+
+  background-color: #a8b88a;
+
+  transition: 0.3s;
+
+}
+
+
+.links a:not(.signup-button):hover::after {
+
+  width: 100%;
+
+}
+
+
+/* ========================================
+   SIGNUP
+======================================== */
+
+.signup-button {
+
+  padding: 10px 20px;
+
+  border-radius: 25px;
+
+  background-color: #a8b88a;
+
+  color: white !important;
+
+}
+
+
+.signup-button:hover {
+
+  background-color: #8e9f6e;
+
+  transform: translateY(-1px);
+
+}
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+.logout-button {
+
+  padding: 10px 20px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  background-color: #a8b88a;
+
+  color: white;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+}
+
+
+.logout-button:hover {
+
+  background-color: #8e9f6e;
+
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+  .navbar {
+
+    padding: 0 20px;
+
+  }
+
+
+  .links {
+
+    gap: 13px;
+
+  }
+
+
+  .links a {
+
+    font-size: 12px;
+
+  }
+
+
+  .logo-text {
+
+    font-size: 20px;
+
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .navbar {
+
+    height: auto;
+
+    min-height: 70px;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 15px;
+
+  }
+  .logo-image {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+
+  .links {
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+  }
+
+}
+
+
+
+

@@ -1,0 +1,235 @@
+<section class="cart-page">
+
+  <div class="cart-header">
+
+    <span>
+      YOUR SHOPPING BAG
+    </span>
+
+    <h1>
+      Shopping Cart
+    </h1>
+
+  </div>
+
+
+  @if (
+    cartService.cartItems().length === 0
+  ) {
+
+    <div class="empty-cart">
+
+      <div class="empty-icon">
+        🛍️
+      </div>
+
+      <h2>
+        Your cart is empty
+      </h2>
+
+      <p>
+        Looks like you haven't added
+        anything yet.
+      </p>
+
+      <a routerLink="/products">
+        Continue Shopping
+      </a>
+
+    </div>
+
+  }
+
+
+  @else {
+
+    <div class="cart-layout">
+
+
+      <!-- ITEMS -->
+
+      <div class="cart-items">
+
+        @for (
+          item of cartService.cartItems();
+          track item.product._id
+        ) {
+
+          <div class="cart-item">
+
+            <div class="item-image">
+
+              @if (item.product.imageUrl) {
+
+                <img
+                  [src]="
+                    'http://localhost:5000/' +
+                    item.product.imageUrl
+                  "
+                  [alt]="item.product.name"
+                />
+
+              }
+
+            </div>
+
+
+            <div class="item-info">
+
+              <span>
+                {{ item.product.category }}
+              </span>
+
+              <h3>
+                {{ item.product.name }}
+              </h3>
+
+              <p>
+                Size: {{ item.product.size }}
+              </p>
+
+              <strong>
+                {{ item.product.price }} EGP
+              </strong>
+
+            </div>
+
+
+            <div class="quantity">
+
+              <button
+                type="button"
+                (click)="decrease(item.product._id!)"
+              >
+                −
+              </button>
+
+              <span>
+                {{ item.quantity }}
+              </span>
+
+              <button
+                type="button"
+                (click)="increase(item.product._id!)"
+              >
+                +
+              </button>
+
+            </div>
+
+
+            <div class="item-total">
+
+              <strong>
+                {{
+                  item.product.price *
+                  item.quantity
+                }}
+                EGP
+              </strong>
+
+              <button
+                type="button"
+                (click)="remove(item.product._id!)"
+              >
+                Remove
+              </button>
+
+            </div>
+
+          </div>
+
+        }
+
+
+        <button
+          type="button"
+          class="clear-button"
+          (click)="clear()"
+        >
+          Clear Cart
+        </button>
+
+      </div>
+
+
+      <!-- SUMMARY -->
+
+      <aside class="summary">
+
+        <h2>
+          Order Summary
+        </h2>
+
+
+        <div class="summary-row">
+
+          <span>
+            Items
+          </span>
+
+          <span>
+            {{ cartService.totalQuantity() }}
+          </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span>
+            Subtotal
+          </span>
+
+          <span>
+            {{ cartService.totalPrice() }}
+            EGP
+          </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span>
+            Shipping
+          </span>
+
+          <span>
+            Free
+          </span>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="total">
+
+          <span>
+            Total
+          </span>
+
+          <strong>
+            {{ cartService.totalPrice() }}
+            EGP
+          </strong>
+
+        </div>
+
+
+       <a
+  routerLink="/checkout"
+  class="checkout-button"
+>
+  Proceed to Checkout
+</a>
+
+      </aside>
+
+    </div>
+
+  }
+
+</section>

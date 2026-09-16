@@ -1,0 +1,194 @@
+/* ==============================
+   ADD PRODUCT PAGE
+================================ */
+
+form {
+  width: 90%;
+  max-width: 750px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* ==============================
+   TITLE
+================================ */
+
+form::before {
+  content: "Add New Product";
+  display: block;
+
+  font-size: 32px;
+  font-weight: 600;
+  color: #3f4d38;
+
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+
+/* ==============================
+   LABELS
+================================ */
+
+label {
+  margin-top: 12px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #3f4d38;
+}
+
+
+/* ==============================
+   INPUTS
+================================ */
+
+input,
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 1px solid #d9ded4;
+  border-radius: 10px;
+
+  background-color: #fafbf9;
+
+  font-size: 15px;
+  font-family: inherit;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+
+/* Focus */
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #a8b88a;
+
+  background-color: #ffffff;
+
+  box-shadow: 0 0 0 3px rgba(168, 184, 138, 0.18);
+}
+
+
+/* ==============================
+   TEXTAREA
+================================ */
+
+textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+
+/* ==============================
+   FILE INPUT
+================================ */
+
+input[type="file"] {
+  padding: 10px;
+
+  background-color: #f5f7f2;
+
+  cursor: pointer;
+}
+
+
+/* ==============================
+   BUTTON
+================================ */
+
+button {
+  margin-top: 25px;
+
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #3f4d38;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+
+/* Hover */
+
+button:hover {
+  background-color: #a8b88a;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* Disabled */
+
+button:disabled {
+  background-color: #cfd4ca;
+
+  color: #ffffff;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
+  form {
+    width: 90%;
+
+    padding: 25px 20px;
+
+    margin: 30px auto;
+  }
+
+
+  form::before {
+    font-size: 26px;
+  }
+
+
+  input,
+  textarea,
+  select {
+    font-size: 14px;
+  }
+
+
+  button {
+    font-size: 15px;
+  }
+
+}

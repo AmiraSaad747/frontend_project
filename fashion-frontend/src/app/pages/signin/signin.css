@@ -1,0 +1,281 @@
+/* =========================
+   SIGN IN
+   ========================= */
+
+.signin-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 70px auto;
+  padding: 45px;
+  background-color: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   TITLE
+   ========================= */
+
+.signin-container h1 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+
+.signin-container > p {
+  text-align: center;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+
+/* =========================
+   ROLE SECTION
+   ========================= */
+
+.role-section h3 {
+  text-align: center;
+  color: #444;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+
+.role-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+
+/* =========================
+   ROLE CARD
+   ========================= */
+
+.role-card {
+  flex: 1;
+  min-height: 150px;
+  padding: 20px 10px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  background-color: #fafafa;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  transition: 0.3s;
+}
+
+
+.role-card:hover {
+  border-color: #a8b88a;
+  background-color: #f7f9f2;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(168, 184, 138, 0.2);
+}
+
+
+.role-icon {
+  font-size: 32px;
+}
+
+
+.role-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #333;
+}
+
+
+.role-description {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+}
+
+
+/* =========================
+   SELECTED ROLE
+   ========================= */
+
+.selected-role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 15px;
+  margin-bottom: 20px;
+
+  border-radius: 9px;
+
+  background-color: #f4f7ee;
+  color: #63734d;
+
+  font-weight: 600;
+}
+
+
+.selected-role button {
+  border: none;
+  background: none;
+
+  color: #7f9365;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.selected-role button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+
+.signin-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.signin-container label {
+  margin-top: 12px;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  color: #444;
+}
+
+
+.signin-container input {
+  padding: 14px 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 9px;
+
+  outline: none;
+
+  background-color: #fafafa;
+}
+
+
+.signin-container input:focus {
+  border-color: #a8b88a;
+  background-color: white;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(168, 184, 138, 0.15);
+}
+
+
+/* =========================
+   ERROR
+   ========================= */
+
+.signin-container small {
+  color: #d9534f;
+  font-size: 12px;
+}
+
+
+.signin-container .error {
+  background-color: #fff0f0;
+  color: #c0392b;
+
+  padding: 12px;
+  border-radius: 8px;
+
+  margin-bottom: 15px;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.submit-button {
+  margin-top: 20px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 25px;
+
+  background-color: #a8b88a;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.submit-button:hover {
+  background-color: #8fa16f;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   SIGNUP LINK
+   ========================= */
+
+.signin-container .bottom-link {
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+
+.signin-container .bottom-link a {
+  color: #7f9365;
+  font-weight: 600;
+}
+
+
+.signin-container .bottom-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 550px) {
+
+  .signin-container {
+    width: calc(100% - 30px);
+
+    padding: 30px 20px;
+
+    margin: 30px auto;
+  }
+
+
+  .role-buttons {
+    flex-direction: column;
+  }
+
+
+  .role-card {
+    min-height: 120px;
+  }
+
+}
